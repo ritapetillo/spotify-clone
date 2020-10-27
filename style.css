@@ -93,8 +93,8 @@ color-links-sideNav: #b3b3b3
 
 .jumbotron {
   background-image: url("https://cdn.britannica.com/83/149183-050-25913164/Queen.jpg");
-  height: 400px;
   background-size: cover;
+  margin-bottom: 0 !important;
 }
 
 .jumbotron h1,
@@ -136,9 +136,15 @@ p {
 
 .jumbo-links {
   justify-content: space-evenly;
+  margin-top: -30px;
 }
 .jumbo-links > a {
   color: #b3b3b3;
+  position: relative;
+}
+.jumbo-links > a:hover {
+  color: white;
+  text-decoration: none;
 }
 .jumbo-links a:first-child {
   margin-right: 20px;
@@ -149,4 +155,15 @@ p {
 }
 .jumbo-links a:nth-child(3) {
   margin-left: 10px;
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 40%;
+  bottom: 0;
+  background-color: yellowgreen;
+  right: 50%;
+  transform: translateX(50%);
 }

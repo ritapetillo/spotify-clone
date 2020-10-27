@@ -22,11 +22,22 @@ color-links-sideNav: #b3b3b3
 /*---------------------------- SCHELETON AND GENERAL SETTINGS------------------------------ */
 .wrapper {
   font-family: var(--main-font);
+  min-height: 100vh;
+  padding-bottom: 90px;
 }
 .container-fluid {
   background-color: var(--color-background);
   margin: 0;
   max-width: none;
+}
+.container-index {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    343deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(62, 131, 177, 1) 100%
+  );
 }
 .col-12 {
   padding: 0;
@@ -66,6 +77,11 @@ color-links-sideNav: #b3b3b3
   color: rgb(255, 255, 255);
   background-color: rgb(21, 136, 62);
 }
+.btn-dark-trasparent {
+  background-color: rgba(25, 20, 20, 0.3);
+  border: solid 2px var(--color-links-sideNav);
+  color: white;
+}
 
 /* ---------------------------------------SIDENAV--------------------------------- */
 .sideNav {
@@ -73,10 +89,8 @@ color-links-sideNav: #b3b3b3
   min-width: 250px;
   max-width: 320px;
   background-color: var(--color-navbar);
-  height: calc(100vh - var(--plyer-height-desktop));
   padding: 1.5em;
-
-  justify-content: space-between;
+  position: relative;
 }
 
 .sideNav__logo img {
@@ -93,6 +107,10 @@ color-links-sideNav: #b3b3b3
   display: flex;
   align-items: center;
   text-decoration: none;
+}
+.sideNav__footer {
+  position: absolute;
+  top: 77vh;
 }
 .sideNav__user-avatar {
   height: 25px;
@@ -114,8 +132,8 @@ color-links-sideNav: #b3b3b3
   text-transform: uppercase;
   color: #b3b3b3;
 
-  margin: 33px 36px;
-  font-size: 16px;
+  margin: 33px 20px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 4px;
   position: relative;
@@ -211,11 +229,15 @@ a.navBar__link.active::after {
   background-size: cover;
   margin-bottom: 0 !important;
   position: relative;
+  min-height: 40vh;
 }
 
 .jumbotron h1,
 p {
   color: white;
+  font-weight: 700;
+  margin-bottom: 40px;
+  font-size: 80px;
 }
 
 .jumbo-content {
@@ -229,27 +251,16 @@ p {
 
 .buttons-wrapper {
   display: inline;
-}
-.buttons-wrapper button:first-child {
-  background-color: #1db954;
-  border-color: white;
-  border-radius: 25px;
-  width: 120px;
-  margin-right: 20px;
+  margin-right: 15px;
 }
 
-.buttons-wrapper button:nth-child(2) {
-  background-color: rgba(25, 20, 20, 0.3);
-  border-color: white;
-  border-radius: 25px;
-  width: 130px;
-  margin-right: 5px;
-  margin-left: 10px;
+.buttons-wrapper > button {
+  padding: 15px 43px;
+  margin-right: 20px;
 }
 .buttons-wrapper i {
   color: white;
-  margin-left: 20px;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .jumbo-links {
@@ -270,36 +281,41 @@ p {
     rgba(116, 115, 113, 0.4243870578778135) 100%
   );
 }
-/* .jumbo-links > a {
+.jumbo-links > a {
   color: #b3b3b3;
-  position: relative;
 }
 .jumbo-links > a:hover {
   color: white;
   text-decoration: none;
 }
-.jumbo-links a:first-child {
-  margin-right: 20px;
-}
-.jumbo-links a:nth-child(2) {
-  margin-left: 10px;
-  margin-right: 20px;
-}
-.jumbo-links a:nth-child(3) {
-  margin-left: 10px;
+
+/*----------------------------------------Cards -  Artist Page--------------------------------------------*/
+
+h3 {
+  font-weight: bold;
+  color: aliceblue;
 }
 
-.active::after {
-  content: "";
-  position: absolute;
-  height: 3px;
-  width: 40%;
-  bottom: 0;
-  background-color: yellowgreen;
-  right: 50%;
-  transform: translateX(50%);
-} */
+.card-title {
+  font-weight: bold;
+}
+.card-spotify {
+  background-color: black;
+  color: white;
+}
+.card-body h5 {
+  font-size: 12px;
+}
+.card-body h6 {
+  color: var(--color-links-sideNav);
+  font-size: 12px;
+}
 
+
+
+.index__cards .card-spotify {
+  background-color:transparent;
+}
 /* ----------------------------------------MEDIA QUERIES ----------------------------------------------------*/
 
 @media screen and (max-width: 768px) {
@@ -325,11 +341,10 @@ p {
     font-size: 0.8em;
   }
 
-
   .navBar a.navBar__link {
-  font-size: 12px;
-   margin: 33px 20px;
-}
+    font-size: 12px;
+    margin: 33px 20px;
+  }
 
   /* PLAYER BOTTOM*/
 

@@ -42,12 +42,20 @@ color-links-sideNav: #b3b3b3
 .col-12 {
   padding: 0;
 }
+.col-6,
+.col-md-4,
+.col-lg-3 {
+  padding: 8px;
+}
 
 /*----------------------------- BUTTONS---------------------------------- */
 
 .btn-fb {
   color: rgb(255, 255, 255);
   background-color: rgb(59, 89, 152);
+}
+.btn-login:hover {
+  transform: translateY(2px);
 }
 .btn-login {
   font-size: 14px;
@@ -63,6 +71,11 @@ color-links-sideNav: #b3b3b3
   border-radius: 500px;
   padding: 16px 48px 18px;
   border-width: 0px;
+  transition: all 0.3s ease-in;
+}
+a.btn-login,
+a.btn-login.bt-fb {
+  text-decoration: none;
 }
 .btn-black {
   color: rgb(255, 255, 255);
@@ -108,9 +121,12 @@ color-links-sideNav: #b3b3b3
   align-items: center;
   text-decoration: none;
 }
+.sideNav__nav-links a:hover {
+  background-color: var(--color-player);
+}
 .sideNav__footer {
-  position: absolute;
-  top: 77vh;
+  position: fixed;
+  bottom: 100px;
 }
 .sideNav__user-avatar {
   height: 25px;
@@ -139,6 +155,9 @@ color-links-sideNav: #b3b3b3
   position: relative;
   text-decoration: none;
 }
+.navBar a.navBar__link:hover {
+  color: white;
+}
 a.navBar__link.active::after {
   position: absolute;
   content: "";
@@ -156,7 +175,7 @@ a.navBar__link.active::after {
   background-color: var(--color-player);
   position: fixed;
   bottom: 0;
-  z-index: 1;
+  z-index: 99;
 }
 /* ----------------------------------------LOGIN-PAGE ----------------------------------------------------*/
 /* ----------------------------------------LOGIN-PAGE ----------------------------------------------------*/
@@ -311,12 +330,24 @@ h3 {
   font-size: 12px;
 }
 
+/* -----------------------------------------------INDEX ---------------------------------------------*/
+/* -----------------------------------------------INDEX ---------------------------------------------*/
+/* -----------------------------------------------INDEX ---------------------------------------------*/
 
+/*----------------------------------------Cards -  Index Page--------------------------------------------*/
 
 .index__cards .card-spotify {
-  background-color:transparent;
+  background-color: transparent;
 }
+
 /* ----------------------------------------MEDIA QUERIES ----------------------------------------------------*/
+
+@media screen and (max-width: 1200px) {
+  .navBar a {
+    font-size: 12px;
+    margin: 33px 20px;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .sideNav {
@@ -328,6 +359,7 @@ h3 {
     padding: 10px;
     align-items: center;
     justify-content: center;
+    z-index: 98;
   }
 
   .sideNav__nav-links {
@@ -345,7 +377,18 @@ h3 {
     font-size: 12px;
     margin: 33px 20px;
   }
+  .navBar a {
+    font-size: 12px;
+    margin: 33px 20px;
+  }
 
+  .index__navBar {
+    flex-direction: column;
+    align-items: center;
+  }
+  .index__navBar a.navBar__link {
+    margin: 15px 20px;
+  }
   /* PLAYER BOTTOM*/
 
   .player iframe {

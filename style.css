@@ -513,14 +513,25 @@ h3 {
 }
 .card-body h5 {
   font-size: 12px;
+  min-height: 50px;
 }
 .card-body h6 {
   color: var(--color-links-sideNav);
   font-size: 12px;
 }
-.index__cards .card-spotify {
-  background-color: transparent;
+
+.card-spotify {
   color: white;
+  background-color: transparent;
+  border-style: none;
+  margin: auto;
+  transform: translateY(0);
+  transition: box-shadow 0.3s ease, transform 0.7s ease;
+}
+
+.card-spotify:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.433);
 }
 
 /* -----------------------------------------------PLAYLIST ---------------------------------------------*/

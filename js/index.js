@@ -4,7 +4,7 @@
 const playListInput = document.getElementById('playlistName');
 const createPlaylistBtn = document.getElementById('createPlaylistBtn')
 const playlistContainer = document.querySelector('.sideNav__playlist')
-let playLists = ['My Playlist']
+let playLists = ""
 const playListTitle = document.querySelector('.playlistTitle')
 const usernameTyped = document.getElementById('username');
 const passwordTyped = document.getElementById('password');
@@ -12,29 +12,46 @@ const loginBtn = document.getElementById('loginBtn');
 const usernameSpan = document.getElementById('usernameSpan')
 let currentUser = ""
 let imgAvatar = document.getElementById('img-avatar');
+const logooutBtn = document.getElementById('logout');
+const albumSongsNodes = document.querySelectorAll('.table-album tr')
+const musicPlayer = document.getElementById('music-player');
+
+
 let hamburger = document.querySelector('.navBar__hamburger');
 const indexNavbar = document.querySelector('.index__navBar')
-
+const defaultUser = {
+    username: "Guest",
+    password: "guest",
+    avatar: "https://www.kindpng.com/picc/m/52-525992_woman-question-mark-clip-art-question-mark-face.png",
+    playlists:["Guest Playlist"]
+}
 
 
 const users = [{
-    username: "Rita",
+    username: "rita.petillo",
+    name:"Rita",
     password: "rita1234",
-    avatar:"https://img2.pngio.com/avatar-female-person-user-woman-young-icon-avatar-person-png-512_512.png"
+    avatar: "https://img2.pngio.com/avatar-female-person-user-woman-young-icon-avatar-person-png-512_512.png",
+    playlists:["Rita's Playlist","Italian Songs"]
 },
     {
-        username: "Nello",
+        username: "nello",
+        name:"Nello",
         password: "nello1234",
-        avatar:"https://st2.depositphotos.com/1007566/12304/v/950/depositphotos_123041468-stock-illustration-avatar-man-cartoon.jpg"
+        avatar: "https://st2.depositphotos.com/1007566/12304/v/950/depositphotos_123041468-stock-illustration-avatar-man-cartoon.jpg",
+        playlists:["Top Italia","90' Songs"]
+
     },
     {
-        username: "Federico",
+        username: "fede",
+        name:"Federico",
         password: "fede1234",
-                avatar:"https://st2.depositphotos.com/1007566/12304/v/950/depositphotos_123041468-stock-illustration-avatar-man-cartoon.jpg"
+        avatar: "https://cdn0.iconfinder.com/data/icons/avatar-25/64/avatar-man-beard-brown-long-hair-beard-512.png",
+        playlists:["Top USA","Top Global'"]
+               
+},defaultUser]
 
-}]
-
-
+const albumQueenBohemian =['69Yw7H4bRIwfIxL0ZCZy8y?si=PaZ71FCiSgWqTZk9vEX_iw:autoplay',"5GGSjXZeTgX9sKYBtl8K6U?si=k586fMBWSHSTk3TMReSZZA","0Ssh20fuVhmasLRJ97MLnp?si=I03z2s_URXm9gxKe0VgZmQ","2LasW39KJDE4VH9hTVNpE2?si=OCYHeZqMQpucWlH8jvOtiQ","6jXrIu3hWbmJziw34IHIwM?si=BR-_OZ8hR-WMrUl-sjo_Kg"]
 
 
 // FUNCTIONS
@@ -45,10 +62,10 @@ const displayMobileMenu = () => {
 }
 
 
-const createPlaylist = () => {
+const createPlaylist = (user) => {
     const newPlaylist = playListInput.value
     playLists.push(newPlaylist)
-    console.log(playLists)
+    localStorage.setItem('playlist',playLists)
     playListInput.value = ""
    clearPlaylist()
     renderPlaylist()
@@ -92,22 +109,43 @@ const login = () => {
 
        
 }
-
+const logout = () => {
+    currentUser = "";
+    localStorage.clear()
+    window.location.href = "login.html";
+}
 const renderUsername = (username) => {
-    usernameSpan.innerHTML = username.username
+    usernameSpan.innerHTML = username.name
     imgAvatar.src = username.avatar
 }
 
 const validateUsername = (username) => {
     return users.find(user => user.username === username);
 }
+const updatePlaylist = (username) => {
+  let user = users.find(user => user.username === username.username);
+    playLists = user.playlists
+    localStorage.setItem('playlist', playLists)
+    console.log(localStorage.getItem('playlist'))
+
+}
+
+/////////---------PLAY SONG----------//////////////
+const playSong = (code) => {
+    musicPlayer.src = `https://open.spotify.com/embed/track/${code}`
+    console.log(document.querySelector('iframe'))
+    document.querySelector('iframe').click()
+
+}
+
+
 
 // ON WINDOW LOAD
 
 window.onload = function () {
 
 /////////---------MOBILE NAV TOGGLE IN INDEX----------//////////////
-    hamburger.addEventListener('click',displayMobileMenu)
+    hamburger?.addEventListener('click',displayMobileMenu)
 
    
 /////////---------LOGIN----------//////////////
@@ -116,12 +154,27 @@ window.onload = function () {
     // const currentUser = localStorage.getItem('currentUser')
     currentUser = JSON.parse(localStorage.getItem('currentUser'))
     console.log(currentUser)
-    if (currentUser) {
-        renderUsername(currentUser)
-       
-   }
+    currentUser ? currentUser : defaultUser;
+    renderUsername(currentUser)
+    updatePlaylist(currentUser)
+      clearPlaylist()
+        renderPlaylist()
+
+   
     
+    /////////---------LOGOUT----------//////////////
+    logooutBtn?.addEventListener('click', logout)
     
+        
+/////////---------PLAY SONGS----------//////////////
+    if (albumSongsNodes) {
+        [...albumSongsNodes].forEach((album, i) => {
+            album.addEventListener('click', () => {
+                playSong(albumQueenBohemian[i])
+            })
+        })
+    }
+
     
 /////////---------PLAYLIST-----------//////////////
 //create a new lateral playlist
@@ -137,8 +190,7 @@ window.onload = function () {
         playLists.push(playListSelected)
         
     }
-        clearPlaylist()
-        renderPlaylist()
+      
 
 
 }

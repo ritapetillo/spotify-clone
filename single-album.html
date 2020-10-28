@@ -62,9 +62,11 @@
                             fill="currentColor">
                         </path>
                     </svg> Install App</a>
-                <a href="#" class="sideNav__user">
-                    <div class="sideNav__user-avatar"><img id="img-avatar" src="" class="img-fluid" alt=""></div><span
-                        id="usernameSpan"></span>
+                <a href="#" class="sideNav__user d-flex justify-content-between">
+                    <div class="d-flex">
+                        <div class="sideNav__user-avatar"><img id="img-avatar" src="" class="img-fluid" alt=""></div>
+                        <span id="usernameSpan"></span>
+                    </div><span id="logout"><i class="fas fa-sign-out-alt"></i></span>
                 </a>
 
             </div>
@@ -100,7 +102,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-8">
-                        <table class="table table-borderless table-dark">
+                        <table class="table table-borderless table-dark table-album">
                             <tbody>
                                 <tr>
                                     <th scope="row"><i class="fa fa-music" aria-hidden="true"></i></th>
@@ -210,10 +212,9 @@
 
     <section class="player">
         <iframe src="https://open.spotify.com/embed/track/0VjIjW4GlUZAMYd2vXMi3b" id="music-player" frameborder="0"
-            allowtransparency="true" allow="encrypted-media" autoplay="1"></iframe>
+            allowtransparency="true" allow="encrypted-media" autoplay;></iframe>
     </section>
 
-    <script src="./js/playlist.js"></script>
     <script src="./js/index.js"></script>
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

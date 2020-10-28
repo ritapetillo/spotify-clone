@@ -11,15 +11,16 @@
 
 <body>
     <div class="wrapper d-flex flex-column-reverse flex-md-row">
+
         <div class="sideNav d-flex flex-row flex-md-column">
-            <div class="sideNav__nav d-flex flex-row flex-md-column">
+            <div class="sideNav__nav sideNav__top d-flex flex-row flex-md-column">
                 <!-- logo -->
 
                 <a href="#" class="sideNav__logo d-none d-md-block"><img src="./imgs/Spotify_Logo_RGB_White.png"
                         alt="spotify_logo"></a>
 
                 <!-- sidebar links -->
-                <div class="sideNav__nav-links d-flex flex-row flex-md-column text-left">
+                <div class=" sideNav__nav-links d-flex flex-row flex-md-column text-left">
                     <a href="index.html"> <svg class="mr-2" viewBox="0 0 512 512" width="24" height="24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -38,6 +39,16 @@
                                 d="M291.301 81.778l166.349 373.587-19.301 8.635-166.349-373.587zM64 463.746v-384h21.334v384h-21.334zM192 463.746v-384h21.334v384h-21.334z"
                                 fill="currentColor"></path>
                         </svg><span> Your Library</span></a>
+
+                </div>
+                <!-- sidebar playlist -->
+
+                <div class=" sideNav__nav-links sideNav__playlist d-flex flex-row flex-md-column text-left mt-5">
+                    <h6 class="ml-3">PLAYLIST</h6>
+                    <a class="sideNav__nav-addPlay" data-toggle="modal" data-target="#createPlaylistModal"><i
+                            class="fas fa-plus "></i><span>Create Playlist</span></a>
+                    <a href="#"><span class="sideNav__nav-play-thumb"><i class="fas fa-music"></i></span><span> My
+                            Playlist</span></a>
 
                 </div>
             </div>
@@ -110,141 +121,177 @@
 
                 <div class="row">
                     <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
-                        <div class="card card-spotify" >
-                            <img src="https://images-na.ssl-images-amazon.com/images/I/91sLchfSmpL._AC_SL1500_.jpg" class="card-img-top"
-                                alt="..." />
+                        <div class="card card-spotify">
+                            <img src="https://images-na.ssl-images-amazon.com/images/I/91sLchfSmpL._AC_SL1500_.jpg"
+                                class="card-img-top" alt="..." />
                             <div class="card-body">
                                 <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
-                                <h6 class="card-title">Queen</h6> 
+                                <h6 class="card-title">Queen</h6>
                             </div>
                         </div>
                     </div>
-                        <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
-                            <div class="card card-spotify" >
-                                <img src="https://images-na.ssl-images-amazon.com/images/I/71V74NRrgPL._AC_SL1200_.jpg" class="card-img-top"
-                                    alt="..." />
-                                <div class="card-body">
-                                    <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
-                                    <h6 class="card-title">Queen</h6>
-                                </div>
+                    <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
+                        <div class="card card-spotify">
+                            <img src="https://images-na.ssl-images-amazon.com/images/I/71V74NRrgPL._AC_SL1200_.jpg"
+                                class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
+                                <h6 class="card-title">Queen</h6>
                             </div>
                         </div>
-                            <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
-                                <div class="card card-spotify" >
-                                    <img src="https://m.media-amazon.com/images/I/71P0x5gbkSL._SS500_.jpg" class="card-img-top"
-                                        alt="..." />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
-                                        <h6 class="card-title">Queen</h6>
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
+                        <div class="card card-spotify">
+                            <img src="https://m.media-amazon.com/images/I/71P0x5gbkSL._SS500_.jpg" class="card-img-top"
+                                alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
+                                <h6 class="card-title">Queen</h6>
                             </div>
-                                <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
-                                    <div class="card card-spotify" >
-                                        <img src="https://images-na.ssl-images-amazon.com/images/I/51UtWpxbNYL._AC_SL1500_.jpghttps://images-na.ssl-images-amazon.com/images/I/91sLchfSmpL._AC_SL1500_.jpg" class="card-img-top"
-                                            alt="..." />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
-                                            <h6 class="card-title">Queen</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
-                                    <div class="card card-spotify">
-                                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IdGCZz2KL._AC_SL1500_.jpg" class="card-img-top"
-                                            alt="..." />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
-                                            <h6 class="card-title">Queen</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
-                                    <div class="card card-spotify">
-                                        <img src="https://images-na.ssl-images-amazon.com/images/I/91A1%2BqyzqBL._AC_SL1500_.jpg" class="card-img-top"
-                                            alt="..." />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
-                                            <h6 class="card-title">Queen</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
-                                    <div class="card card-spotify">
-                                        <img src="https://images-na.ssl-images-amazon.com/images/I/71B34LLm%2B9L._AC_SL1400_.jpg" class="card-img-top"
-                                            alt="..." />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
-                                            <h6 class="card-title">Queen</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
-                                    <div class="card card-spotify">
-                                        <img src="https://images-na.ssl-images-amazon.com/images/I/813RMq4iTFL._AC_SL1400_.jpg" class="card-img-top"
-                                            alt="..." />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
-                                            <h6 class="card-title">Queen</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
-                                    <div class="card card-spotify">
-                                        <img src="https://images-na.ssl-images-amazon.com/images/I/91sLchfSmpL._AC_SL1500_.jpg" class="card-img-top"
-                                            alt="..." />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
-                                            <h6 class="card-title">Queen</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
-                                    <div class="card card-spotify">
-                                        <img src="https://images-na.ssl-images-amazon.com/images/I/71V5KksYYYL._AC_SL1400_.jpg" class="card-img-top"
-                                            alt="..." />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
-                                            <h6 class="card-title">Queen</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
-                                    <div class="card card-spotify">
-                                        <img src="https://m.media-amazon.com/images/I/61zWioxHfwL._SS500_.jpg" class="card-img-top"
-                                            alt="..." />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
-                                            <h6 class="card-title">Queen</h6>
-                                        </div>
-                                    </div>
-                                </div><div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
-                                    <div class="card card-spotify">
-                                        <img src="https://images-na.ssl-images-amazon.com/images/I/819A1bn-xyL._AC_SL1400_.jpg" class="card-img-top"
-                                            alt="..." />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
-                                            <h6 class="card-title">Queen</h6>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
+                        <div class="card card-spotify">
+                            <img src="https://images-na.ssl-images-amazon.com/images/I/51UtWpxbNYL._AC_SL1500_.jpghttps://images-na.ssl-images-amazon.com/images/I/91sLchfSmpL._AC_SL1500_.jpg"
+                                class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
+                                <h6 class="card-title">Queen</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
+                        <div class="card card-spotify">
+                            <img src="https://images-na.ssl-images-amazon.com/images/I/81IdGCZz2KL._AC_SL1500_.jpg"
+                                class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
+                                <h6 class="card-title">Queen</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
+                        <div class="card card-spotify">
+                            <img src="https://images-na.ssl-images-amazon.com/images/I/91A1%2BqyzqBL._AC_SL1500_.jpg"
+                                class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
+                                <h6 class="card-title">Queen</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
+                        <div class="card card-spotify">
+                            <img src="https://images-na.ssl-images-amazon.com/images/I/71B34LLm%2B9L._AC_SL1400_.jpg"
+                                class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
+                                <h6 class="card-title">Queen</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
+                        <div class="card card-spotify">
+                            <img src="https://images-na.ssl-images-amazon.com/images/I/813RMq4iTFL._AC_SL1400_.jpg"
+                                class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
+                                <h6 class="card-title">Queen</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
+                        <div class="card card-spotify">
+                            <img src="https://images-na.ssl-images-amazon.com/images/I/91sLchfSmpL._AC_SL1500_.jpg"
+                                class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
+                                <h6 class="card-title">Queen</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
+                        <div class="card card-spotify">
+                            <img src="https://images-na.ssl-images-amazon.com/images/I/71V5KksYYYL._AC_SL1400_.jpg"
+                                class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
+                                <h6 class="card-title">Queen</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
+                        <div class="card card-spotify">
+                            <img src="https://m.media-amazon.com/images/I/61zWioxHfwL._SS500_.jpg" class="card-img-top"
+                                alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
+                                <h6 class="card-title">Queen</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
+                        <div class="card card-spotify">
+                            <img src="https://images-na.ssl-images-amazon.com/images/I/819A1bn-xyL._AC_SL1400_.jpg"
+                                class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
+                                <h6 class="card-title">Queen</h6>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
     </div>
+
     </section>
+    <!-- Create Playlist Modal -->
+    <div class="modal fade" id="createPlaylistModal" tabindex="-1" role="dialog"
+        aria-labelledby="createPlaylistModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h5 class="modal-title" id="createPlaylistModalLabel">Create Playlist</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="far fa-times-circle text-white"></i></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <input id="playlistName" type="text" class="form-control" placeholder="Playlist Name" value=""
+                            aria-label="Playlist Name" aria-describedby="playslist-name">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" id="createPlaylistBtn" class="btn-login btn-green btn-modals" data-dismiss="modal">Create
+                        Playlist</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     </main>
 
     </div>
+
+    
     <section class="player">
         <iframe src="https://open.spotify.com/embed/track/0VjIjW4GlUZAMYd2vXMi3b" id="music-player" frameborder="0"
             allowtransparency="true" allow="encrypted-media" autoplay="1"></iframe>
     </section>
 
+    <script src="./js/playlist.js"></script>
+    <script src="./js/index.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/84a612360c.js" crossorigin="anonymous"></script>
 
 </body>

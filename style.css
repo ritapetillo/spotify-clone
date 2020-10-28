@@ -95,19 +95,27 @@ a.btn-login.bt-fb {
   border: solid 2px var(--color-links-sideNav);
   color: white;
 }
+.btn-modals {
+  padding: 10px 10px;
+}
 
 /* ---------------------------------------SIDENAV--------------------------------- */
+
 .sideNav {
   width: 20vw;
-  min-width: 250px;
+  min-width: 240px;
   max-width: 320px;
   background-color: var(--color-navbar);
   padding: 1.5em;
   position: relative;
 }
-
+.sideNav__top {
+  position: fixed;
+  top: 30px;
+}
 .sideNav__logo img {
-  width: 76%;
+  width: 18vw;
+  max-width: 130px;
   margin-left: 20px;
   margin-bottom: 30px;
 }
@@ -116,14 +124,60 @@ a.btn-login.bt-fb {
   color: var(--color-links-sideNav);
   padding: 10px 20px;
   font-weight: 600;
-  font-size: 1.2em;
+  font-size: 14px;
   display: flex;
   align-items: center;
   text-decoration: none;
 }
 .sideNav__nav-links a:hover {
   background-color: var(--color-player);
+  cursor: pointer;
 }
+.sideNav__playlist h6 {
+  color: var(--color-links-sideNav);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+.sideNav__nav-addPlay i {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background-color: var(--color-links-sideNav);
+  color: black;
+  margin-right: 12px;
+}
+.sideNav__nav-addPlay:hover {
+  color: white;
+}
+.sideNav__nav-play-thumb {
+  background: linear-gradient(135deg, #450af5, #c4efd9);
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  margin-right: 12px;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  color: white;
+}
+
+.sideNav__nav-addPlay:hover i {
+  background-color: white;
+  transform: translateY(-2px);
+}
+
 .sideNav__footer {
   position: fixed;
   bottom: 100px;
@@ -134,6 +188,7 @@ a.btn-login.bt-fb {
   background-color: white;
   border-radius: 100%;
   margin-right: 8px;
+  overflow: hidden;
 }
 .sideNav__nav-links a.sideNav__user {
   color: white;
@@ -176,6 +231,35 @@ a.navBar__link.active::after {
   position: fixed;
   bottom: 0;
   z-index: 99;
+}
+
+/* ----------------------------------------------------MODALS----------------------------------------------------------- */
+.modal-content {
+  background-color: var(--color-bacl-hover);
+  color: var(--color-dividers-login);
+  text-align: center;
+}
+.modal-body input {
+  border-radius: 30px;
+}
+.modal-header {
+  border-bottom: none;
+}
+.modal-body input::placeholder {
+  border-radius: 30px;
+  color: var(--color-links-sideNav);
+  font-family: var(--main-font);
+  font-size: 12px;
+}
+.modal-body {
+  border-bottom: none;
+  padding-bottom: 20px;
+}
+.modal-footer {
+  justify-content: center;
+  border-top: none;
+  padding-bottom: 30px;
+  margin-top: -30px;
 }
 /* ----------------------------------------LOGIN-PAGE ----------------------------------------------------*/
 /* ----------------------------------------LOGIN-PAGE ----------------------------------------------------*/
@@ -340,6 +424,23 @@ h3 {
   background-color: transparent;
 }
 
+/* -----------------------------------------------PLAYLIST ---------------------------------------------*/
+/* -----------------------------------------------PLAYLIST ---------------------------------------------*/
+/* -----------------------------------------------PLAYLIST ---------------------------------------------*/
+.playlist__jumbotron {
+  background: #c33764; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #1d2671,
+    #c33764
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #1d2671,
+    #c33764
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 /* ----------------------------------------MEDIA QUERIES ----------------------------------------------------*/
 
 @media screen and (max-width: 1200px) {
@@ -361,7 +462,9 @@ h3 {
     justify-content: center;
     z-index: 98;
   }
-
+  .sideNav__top {
+    position: static;
+  }
   .sideNav__nav-links {
     width: 100vw;
     justify-content: space-around;

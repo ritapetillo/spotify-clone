@@ -42,7 +42,8 @@
                 </div>
                 <!-- sidebar playlist -->
 
-                <div class=" sideNav__nav-links sideNav__playlist d-flex flex-row flex-md-column text-left mt-5">
+                <div
+                    class=" sideNav__nav-links sideNav__playlist  d-none d-md-flex flex-row flex-md-column text-left mt-5">
                     <h6 class="ml-3">PLAYLIST</h6>
                     <a class="sideNav__nav-addPlay" data-toggle="modal" data-target="#createPlaylistModal"><i
                             class="fas fa-plus "></i><span>Create Playlist</span></a>
@@ -74,12 +75,14 @@
 
         <main class="container-fluid container-index">
             <!-- here you put the content of each page -->
-            <div class="index__navBar navBar col-12 d-flex justify-content-center">
+            <div class="navBar__hamburger d-flex justify-content-end d-md-none mt-4"><i class="fas fa-bars"></i>
+            </div>
+            <div class="index__navBar navBar col-12 d-none d-md-flex justify-content-center" id="indexNavbar">
                 <a href="#" class="navBar__link active">Trending</a>
                 <a href="#" class="navBar__link">Podcast</a>
-                <a href="#" class="navBar__link">Moods and genres</a>
+                <a href="albums.html" class="navBar__link">Queens</a>
                 <a href="#" class="navBar__link">New releases</a>
-                <a href="albums.html" class="navBar__link">Discover</a>
+                <a href="#" class="navBar__link">Discover</a>
 
 
             </div>

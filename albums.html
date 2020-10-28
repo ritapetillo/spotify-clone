@@ -43,7 +43,8 @@
                 </div>
                 <!-- sidebar playlist -->
 
-                <div class=" sideNav__nav-links sideNav__playlist d-flex flex-row flex-md-column text-left mt-5">
+                <div
+                    class=" sideNav__nav-links sideNav__playlist d-none d-md-flex flex-row flex-md-column text-left mt-5">
                     <h6 class="ml-3">PLAYLIST</h6>
                     <a class="sideNav__nav-addPlay" data-toggle="modal" data-target="#createPlaylistModal"><i
                             class="fas fa-plus "></i><span>Create Playlist</span></a>
@@ -62,9 +63,8 @@
                         </path>
                     </svg> Install App</a>
                 <a href="#" class="sideNav__user">
-                    <div class="sideNav__user-avatar"><img class="img-fluid"
-                            src="https://img2.pngio.com/avatar-female-person-user-woman-young-icon-avatar-person-png-512_512.png"
-                            alt=""></div>RitaPe
+                    <div class="sideNav__user-avatar"><img id="img-avatar" src="" class="img-fluid" alt=""></div><span
+                        id="usernameSpan"></span>
                 </a>
 
             </div>
@@ -120,15 +120,18 @@
                 <h3 class="text-left my-3" style="font-weight: bold">Albums</h3>
 
                 <div class="row">
+
                     <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
-                        <div class="card card-spotify">
-                            <img src="https://images-na.ssl-images-amazon.com/images/I/91sLchfSmpL._AC_SL1500_.jpg"
-                                class="card-img-top" alt="..." />
-                            <div class="card-body">
-                                <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
-                                <h6 class="card-title">Queen</h6>
+                        <a href="single-album.html?bohemian">
+                            <div class="card card-spotify">
+                                <img src="https://images-na.ssl-images-amazon.com/images/I/91sLchfSmpL._AC_SL1500_.jpg"
+                                    class="card-img-top" alt="..." />
+                                <div class="card-body">
+                                    <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
+                                    <h6 class="card-title">Queen</h6>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
                         <div class="card card-spotify">
@@ -265,7 +268,8 @@
                 </div>
                 <div class="modal-footer">
 
-                    <button type="button" id="createPlaylistBtn" class="btn-login btn-green btn-modals" data-dismiss="modal">Create
+                    <button type="button" id="createPlaylistBtn" class="btn-login btn-green btn-modals"
+                        data-dismiss="modal">Create
                         Playlist</button>
                 </div>
             </div>
@@ -276,7 +280,7 @@
 
     </div>
 
-    
+
     <section class="player">
         <iframe src="https://open.spotify.com/embed/track/0VjIjW4GlUZAMYd2vXMi3b" id="music-player" frameborder="0"
             allowtransparency="true" allow="encrypted-media" autoplay="1"></iframe>

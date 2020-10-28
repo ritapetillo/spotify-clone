@@ -11,7 +11,9 @@ const passwordTyped = document.getElementById('password');
 const loginBtn = document.getElementById('loginBtn');
 const usernameSpan = document.getElementById('usernameSpan')
 let currentUser = ""
-let imgAvatar = document.getElementById('img-avatar')
+let imgAvatar = document.getElementById('img-avatar');
+let hamburger = document.querySelector('.navBar__hamburger');
+const indexNavbar = document.querySelector('.index__navBar')
 
 
 
@@ -36,6 +38,11 @@ const users = [{
 
 
 // FUNCTIONS
+
+const displayMobileMenu = () => {
+    console.log(indexNavbar)
+    indexNavbar.classList.toggle('d-none')
+}
 
 
 const createPlaylist = () => {
@@ -98,12 +105,15 @@ const validateUsername = (username) => {
 // ON WINDOW LOAD
 
 window.onload = function () {
-    
-    loginBtn?.addEventListener('click', login)
-    createPlaylistBtn?.addEventListener('click', createPlaylist)
-    // const currentUser = localStorage.getItem('currentUser')
-    console.log(localStorage)
 
+/////////---------MOBILE NAV TOGGLE IN INDEX----------//////////////
+    hamburger.addEventListener('click',displayMobileMenu)
+
+   
+/////////---------LOGIN----------//////////////
+    //add login event
+    loginBtn?.addEventListener('click', login)
+    // const currentUser = localStorage.getItem('currentUser')
     currentUser = JSON.parse(localStorage.getItem('currentUser'))
     console.log(currentUser)
     if (currentUser) {
@@ -112,7 +122,11 @@ window.onload = function () {
    }
     
     
-
+    
+/////////---------PLAYLIST-----------//////////////
+//create a new lateral playlist
+    createPlaylistBtn?.addEventListener('click', createPlaylist)
+//display playlist page
     //I'm looking for the playlist name so that I can display it in the playlist page.
     if (location.search.substring(1)) {
         let queryString = location.search.substring(1);

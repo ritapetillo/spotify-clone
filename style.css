@@ -56,6 +56,9 @@ color-links-sideNav: #b3b3b3
 button:focus {
   outline: 0;
 }
+a{
+  text-decoration: none;
+}
 /*----------------------------- BUTTONS---------------------------------- */
 
 .btn-fb {
@@ -309,6 +312,19 @@ a.navBar__link.active::after {
   margin-bottom: 20px;
   position: relative;
   border-bottom: 1px solid var(--color-dividers-login);
+}
+.login__socials a{
+  text-decoration: none;
+}
+.login__socials a,.btn-default:hover,
+.login__socials a,.btn-default{
+  text-decoration: none;
+  
+}
+.login__socials a.btn-fb:hover,
+.login__socials a.btn-black:hover{
+  text-decoration: none;
+  color:white;
 }
 
 .login__socials::after {

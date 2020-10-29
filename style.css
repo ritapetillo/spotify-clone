@@ -136,7 +136,7 @@ color-links-sideNav: #b3b3b3
 }
 
 /* ----------------------------------------------------NAVBAR----------------------------------------------------------- */
-.navBar {}
+
 
 .navBar a.navBar__link {
 	text-transform: uppercase;
@@ -322,13 +322,13 @@ h3 {
 	font-size: 12px;
 }
 
-.card-body>h6 {
+.card-body h6 {
 	color: var(--color-links-sideNav);
 	font-size: 12px;
 }
 
 .card-spotify {
-	background-color: #181818;
+	background-color: transparent;
 	position: relative;
 	color: white;
 	border-style: none;
@@ -342,15 +342,16 @@ h3 {
 	box-shadow: 0 10px 20px rgba(255, 255, 255, 0.433);
 }
 
+.img-albums:hover img {
+	opacity: 0.5;
+}
+
 .imgAlbum {
 	position: relative;
 	display: inline-flex;
 
 }
 
-.img-albums:hover img {
-	opacity: 0.5;
-}
 
 .imgAlbum i {
 	visibility: hidden;
@@ -373,7 +374,7 @@ h3 {
 
 .hearth_container {
 	position: absolute;
-	right: 0;
+	right: 0.5em;
 	bottom: 0;
 }
 

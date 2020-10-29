@@ -1,10 +1,11 @@
 
 
 // VARIABLES
+
+//DOM ELEMENTS
 const playListInput = document.getElementById('playlistName');
 const createPlaylistBtn = document.getElementById('createPlaylistBtn')
 const playlistContainer = document.querySelector('.sideNav__playlist')
-let playLists = ""
 const playListTitle = document.querySelector('.playlistTitle')
 const usernameTyped = document.getElementById('username');
 const passwordTyped = document.getElementById('password');
@@ -15,6 +16,16 @@ let imgAvatar = document.getElementById('img-avatar');
 const logooutBtn = document.getElementById('logout');
 const albumSongsNodes = document.querySelectorAll('.table-album tr')
 const musicPlayer = document.getElementById('music-player');
+const favIcon = document.querySelector('.fav-icon')
+const artistContainer = document.querySelector('.artists__container')
+const albumsFav = document.querySelector('.albums-fav')
+
+//VARIABLES
+let playLists = []
+let favArt = []
+let laterAddedPlaylist = []
+let currentFavArtist = []
+
 
 
 let hamburger = document.querySelector('.navBar__hamburger');
@@ -32,7 +43,14 @@ const users = [{
     name:"Rita",
     password: "rita1234",
     avatar: "https://img2.pngio.com/avatar-female-person-user-woman-young-icon-avatar-person-png-512_512.png",
-    playlists:["Rita's Playlist","Italian Songs"]
+    playlists: ["Rita's Playlist", "Italian Songs"],
+    favArt: [{
+        name: 'ColdPlay',
+        code: "4gzpq5DPGxSnKTe4SA8HAU",
+        image: 'https://i.scdn.co/image/6397b6a29c8d9081412e09feb53600f8c9a18313',
+        background:"https://i.scdn.co/image/1ff3b3c63751ef3615e703c9853c433c3f45f4e7"
+    }]
+    
 },
     {
         username: "nello",
@@ -51,7 +69,8 @@ const users = [{
                
 },defaultUser]
 
-const albumQueenBohemian =['69Yw7H4bRIwfIxL0ZCZy8y?si=PaZ71FCiSgWqTZk9vEX_iw:autoplay',"5GGSjXZeTgX9sKYBtl8K6U?si=k586fMBWSHSTk3TMReSZZA","0Ssh20fuVhmasLRJ97MLnp?si=I03z2s_URXm9gxKe0VgZmQ","2LasW39KJDE4VH9hTVNpE2?si=OCYHeZqMQpucWlH8jvOtiQ","6jXrIu3hWbmJziw34IHIwM?si=BR-_OZ8hR-WMrUl-sjo_Kg"]
+
+
 
 
 // FUNCTIONS
@@ -65,12 +84,14 @@ const displayMobileMenu = () => {
 const createPlaylist = (user) => {
     const newPlaylist = playListInput.value
     playLists.push(newPlaylist)
-    localStorage.setItem('playlist',playLists)
+    localStorage.setItem('playLists', JSON.stringify(playLists))
     playListInput.value = ""
+    console.log(JSON.parse(localStorage.getItem('playLists')))
    clearPlaylist()
     renderPlaylist()
 }
 const renderPlaylist = () => {
+    playLists = JSON.parse(localStorage.getItem('playLists'))
     playLists.forEach((playlist, i) => {
     let a = document.createElement('a');
     a.href = `playlist.html?${playlist}`
@@ -122,14 +143,38 @@ const renderUsername = (username) => {
 const validateUsername = (username) => {
     return users.find(user => user.username === username);
 }
+
+/////////---------UPLOAD USER PLAYLIST----------//////////////
+
 const updatePlaylist = (username) => {
-  let user = users.find(user => user.username === username.username);
-    playLists = user.playlists
-    localStorage.setItem('playlist', playLists)
-    console.log(localStorage.getItem('playlist'))
+    let user = users.find(user => user.username === username.username);
+    if (localStorage.getItem(localStorage.getItem('playLists'))) {
+        playlists = localStorage.getItem(localStorage.getItem('playLists'))
+    }
+    else {
+        playLists = [...playLists, ...username.playlists]
+            localStorage.setItem('playLists', JSON.stringify(playLists))
+
+
+    }
+    console.log(localStorage.getItem('playLists'))
 
 }
 
+/////////---------UPLOAD USER FAV ARTISTS----------//////////////
+
+const loafFavArt = (username) => {
+    let user = users.find(user => user.username === username.username);
+    if (localStorage.getItem(localStorage.getItem('favArt'))) {
+        playlists = localStorage.getItem(localStorage.getItem('favArt'))
+    }
+    else {
+        favArt = [...favArt, ...username.favArt]
+            // localStorage.setItem('playLists', JSON.stringify(playLists))
+    }
+    console.log(favArt)
+
+}
 /////////---------PLAY SONG----------//////////////
 const playSong = (code) => {
     musicPlayer.src = `https://open.spotify.com/embed/track/${code}`
@@ -138,6 +183,69 @@ const playSong = (code) => {
 
 }
 
+/////-------FETCH ALBUMS------/////
+const fetchAlbum = async (albumCode) => {
+    const res = await fetch(`https://api.spotify.com/v1/artists/${albumCode}/albums`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': 'Bearer BQD5AJ1q_0VA1NZNTNqKzCV4Bu9EW56HKHvneN6aMShh1TFFLxsxai8DdJ9JAXgIHc6-b2dNCbKiWvIfuQ-4Nm1IGK0J4pigI6rT42srGngZ8mdmS1Av8ou_n-KwqdtZ8H-hejDUiO9BKTOL2k3L9mm0U__dhj1UvC5EH9OzxaXPsBtyIeKe5fJCukG2JGY'
+        }
+    })
+    const data = await res.json()
+   return data
+
+}
+
+///----PRINT FAV ARTISTS-----///
+const renderFavArtists = () => {
+    favArt.forEach(artist => {
+        let div = document.createElement('div')
+        let divClasses = ["col-6","col-md-4","col-lg-3","col-xl-2","text-center"]
+        div.classList.add(...divClasses)
+        div.innerHTML = `       <a href="albums-fav.html?${artist.code}" class="">
+                            <div class="card card-spotify">
+                                <img src="${artist.image}"
+                                    class="card-img-top" alt="..." />
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        ${artist.name}
+                                    </h5>
+                                   
+                                </div>
+                            </div>
+                        </a>`
+        
+        artistContainer.appendChild(div)
+    })
+}
+
+///----PRINT FAV ARTISTS ALBUMS-----///
+const renderFavArtistsAlbums = (artSelected) => {
+    let artistTitle = document.querySelector('.artist-title')
+    let jumboFavArt = document.querySelector('.jumbotron-art-fav')
+    artistTitle.innerHTML = artSelected.name
+    jumboFavArt.style.backgroundImage = `url(${artSelected.background})`;
+    currentFavArtist.items.forEach(album => {
+        let div = document.createElement('div')
+        let divClasses = ["col-6","col-md-4","col-lg-3","col-xl-2","text-center"]
+        div.classList.add(...divClasses)
+        div.innerHTML = `       <a href="albums-fav.html?${album.name}" class="">
+                            <div class="card card-spotify">
+                                <img src="${album.images[1].url}"
+                                    class="card-img-top" alt="..." />
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        ${album.name}
+                                    </h5>
+                                   
+                                </div>
+                            </div>
+                        </a>`
+        
+        albumsFav.appendChild(div)
+    })
+}
 
 
 // ON WINDOW LOAD
@@ -158,7 +266,8 @@ window.onload = function () {
     renderUsername(currentUser)
     updatePlaylist(currentUser)
       clearPlaylist()
-        renderPlaylist()
+    renderPlaylist()
+    loafFavArt(currentUser)
 
    
     
@@ -175,6 +284,20 @@ window.onload = function () {
         })
     }
 
+   
+      if (window.location.href.indexOf("albums-fav") != -1) {
+          let code = location.search.substring(1)
+          let artistFiltered = favArt.find(artist => artist.code === code)
+        fetchAlbum(code).then(res=>
+            currentFavArtist = res
+        ).then(res => renderFavArtistsAlbums(artistFiltered)
+            
+)
+    }
+
+       /////////---------RENDER FAV ARTISTS-----------//////////////
+    
+    if(window.location.href.indexOf("artists") != -1){renderFavArtists()}
     
 /////////---------PLAYLIST-----------//////////////
 //create a new lateral playlist
@@ -190,7 +313,17 @@ window.onload = function () {
         playLists.push(playListSelected)
         
     }
-      
+    /////////---------LIKED ALBUMS-----------//////////////
+    favIcon?.addEventListener('click', () => {
+        favIcon.classList.toggle('fas');
+        const bedge = document.getElementById('bedge')
+        bedge.classList.toggle('d-none')
+    })
+
+     
+
+    
+    
 
 
 }

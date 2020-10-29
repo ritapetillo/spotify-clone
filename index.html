@@ -32,12 +32,12 @@
                                 d="M349.714 347.937l93.714 109.969-16.254 13.969-93.969-109.969q-48.508 36.825-109.207 36.825-36.826 0-70.476-14.349t-57.905-38.603-38.603-57.905-14.349-70.476 14.349-70.476 38.603-57.905 57.905-38.603 70.476-14.349 70.476 14.349 57.905 38.603 38.603 57.905 14.349 70.476q0 37.841-14.73 71.619t-40.889 58.921zM224 377.397q43.428 0 80.254-21.461t58.286-58.286 21.461-80.254-21.461-80.254-58.286-58.285-80.254-21.46-80.254 21.46-58.285 58.285-21.46 80.254 21.46 80.254 58.285 58.286 80.254 21.461z"
                                 fill="currentColor" fill-rule="evenodd"></path>
                         </svg><span>Search</span></a>
-                    <a href="#"><svg class="mr-2" viewBox="0 0 512 512" width="24" height="24"
+                    <a href="artists.html"><svg class="mr-2" viewBox="0 0 512 512" width="24" height="24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path class="mr-2"
                                 d="M291.301 81.778l166.349 373.587-19.301 8.635-166.349-373.587zM64 463.746v-384h21.334v384h-21.334zM192 463.746v-384h21.334v384h-21.334z"
                                 fill="currentColor"></path>
-                        </svg><span> Your Library</span></a>
+                        </svg><span> Your Artists</span></a>
 
                 </div>
                 <!-- sidebar playlist -->
@@ -62,8 +62,10 @@
                         </path>
                     </svg> Install App</a>
                 <a href="#" class="sideNav__user d-flex justify-content-between">
-                    <div class="d-flex"><div class="sideNav__user-avatar"><img id="img-avatar" src="" class="img-fluid" alt=""></div><span
-                        id="usernameSpan"></span></div><span id="logout"><i class="fas fa-sign-out-alt"></i></span>
+                    <div class="d-flex">
+                        <div class="sideNav__user-avatar"><img id="img-avatar" src="" class="img-fluid" alt=""></div>
+                        <span id="usernameSpan"></span>
+                    </div><span id="logout"><i class="fas fa-sign-out-alt"></i></span>
                 </a>
 
             </div>
@@ -73,7 +75,11 @@
 
 
 
-        <main class="container-fluid container-index">
+        <main class="container-fluid container-index position-relative">
+            <div class="navArrows"><a href="#" disabled><i class="fas fa-chevron-left"></i></a><a href="albums.html"><i
+                        class="fas fa-chevron-right"></i></a></div>
+
+            <div class="d-none bedge" id="bedge">Album added to your favorite</div>
             <!-- here you put the content of each page -->
             <div class="navBar__hamburger d-flex justify-content-end d-md-none mt-4"><i class="fas fa-bars"></i>
             </div>
@@ -90,165 +96,290 @@
                 <h3 class="text-left my-3" style="font-weight: bold">#THROWBACKTHURSDAY</h3>
 
                 <div class="row">
-
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-2 text-center" style="margin-bottom: 2rem">
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2 text-center d-flex" style="margin-bottom: 2rem">
                         <div class="card card-spotify">
-                            <img src="https://images-na.ssl-images-amazon.com/images/I/91A1%2BqyzqBL._AC_SL1500_.jpg"
-                                class="card-img-top" alt="..." />
+                            <div class="img-albums">
+                                <div class="imgAlbum">
+                                    <img src="https://images-na.ssl-images-amazon.com/images/I/71V74NRrgPL._AC_SL1200_.jpg"
+                                        class="card-img-top d-flex" alt="..." />
+                                    <div class="play_container">
+                                        <i class="far fa-play-circle playFav"></i>
+                                    </div>
+                                    <div class="hearth_container">
+                                        <i class="far fa-heart hearthFav"></i>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    Live Around The World <br />Deluxe
+                                    Bohemian Rhapsody (The Original Soundtrack)
                                 </h5>
+                                <h6 class="card-title">Queen</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2  text-center" style="margin-bottom: 2rem">
+                        <div class="card card-spotify">
+                            <div class="img-albums">
+                                <div class="imgAlbum">
+                                    <img src="https://m.media-amazon.com/images/I/71P0x5gbkSL._SS500_.jpg"
+                                        class="card-img-top d-flex" alt="..." />
+                                    <div class="play_container">
+                                        <i class="far fa-play-circle playFav"></i>
+                                    </div>
+                                    <div class="hearth_container">
+                                        <i class="far fa-heart hearthFav"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    Bohemian Rhapsody (The Original Soundtrack)
+                                </h5>
+                                <h6 class="card-title">Queen</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2  text-center" style="margin-bottom: 2rem">
+                        <div class="card card-spotify">
+                            <div class="img-albums">
+                                <div class="imgAlbum">
+                                    <img src="https://images-na.ssl-images-amazon.com/images/I/51UtWpxbNYL._AC_SL1500_.jpghttps://images-na.ssl-images-amazon.com/images/I/91sLchfSmpL._AC_SL1500_.jpg"
+                                        class="card-img-top" alt="..." />
+                                    <div class="play_container">
+                                        <i class="far fa-play-circle playFav"></i>
+                                    </div>
+                                    <div class="hearth_container">
+                                        <i class="far fa-heart hearthFav"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    Bohemian Rhapsody (The Original Soundtrack)
+                                </h5>
+                                <h6 class="card-title">Queen</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2  text-center " style="margin-bottom: 2rem">
+                        <div class="card card-spotify">
+                            <div class="img-albums">
+                                <div class="imgAlbum">
+                                    <img src="https://images-na.ssl-images-amazon.com/images/I/81IdGCZz2KL._AC_SL1500_.jpg"
+                                        class="card-img-top" alt="..." />
+                                    <div class="play_container">
+                                        <i class="far fa-play-circle playFav"></i>
+                                    </div>
+                                    <div class="hearth_container">
+                                        <i class="far fa-heart hearthFav"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Queen <br />Greatest Hits</h5>
+                                <h6 class="card-title">Two lp Set</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2  text-center" style="margin-bottom: 2rem">
+                        <div class="card card-spotify">
+                            <div class="img-albums">
+                                <div class="imgAlbum">
+                                    <img src="https://images-na.ssl-images-amazon.com/images/I/91A1%2BqyzqBL._AC_SL1500_.jpg"
+                                        class="card-img-top" alt="..." />
+                                    <div class="play_container">
+                                        <i class="far fa-play-circle playFav"></i>
+                                    </div>
+                                    <div class="hearth_container">
+                                        <i class="far fa-heart hearthFav"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Live Around The World <br />Deluxe</h5>
                                 <h6 class="card-title">2020</h6>
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-2 text-center" style="margin-bottom: 2rem">
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2  text-center" style="margin-bottom: 2rem">
                         <div class="card card-spotify">
-                            <img src="https://images-na.ssl-images-amazon.com/images/I/71B34LLm%2B9L._AC_SL1400_.jpg"
-                                class="card-img-top" alt="..." />
+                            <div class="img-albums">
+                                <div class="imgAlbum">
+                                    <img src="https://images-na.ssl-images-amazon.com/images/I/71B34LLm%2B9L._AC_SL1400_.jpg"
+                                        class="card-img-top" alt="..." />
+                                    <div class="play_container">
+                                        <i class="far fa-play-circle playFav"></i>
+                                    </div>
+                                    <div class="hearth_container">
+                                        <i class="far fa-heart hearthFav"></i>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    Queen II <br />(2011 Remaster)
-                                </h5>
+                                <h5 class="card-title">Queen II <br />(2011 Remaster)</h5>
                                 <h6 class="card-title">1974</h6>
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-2 text-center" style="margin-bottom: 2rem">
+                </div>
+                <h3 class="text-left my-3" style="font-weight: bold">Classifiche</h3>
+
+                <div class="row">
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2  text-center " style="margin-bottom: 2rem">
                         <div class="card card-spotify">
-                            <img src="https://images-na.ssl-images-amazon.com/images/I/813RMq4iTFL._AC_SL1400_.jpg"
-                                class="card-img-top" alt="..." />
+                            <div class="img-albums">
+                                <div class="imgAlbum">
+                                    <img src="https://charts-images.scdn.co/assets/locale_en/regional/daily/region_global_large.jpg"
+                                        class="card-img-top" alt="..." />
+                                    <div class="play_container">
+                                        <i class="far fa-play-circle playFav"></i>
+                                    </div>
+                                    <div class="hearth_container">
+                                        <i class="far fa-heart hearthFav"></i>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    Queen (deluxe Edition 2011 Remaster)
-                                </h5>
-                                <h6 class="card-title">1973</h6>
+                                <h5 class="card-title">Sheer Heart Attack <br />(2011 Remaster)</h5>
+                                <h6 class="card-title">1974</h6>
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-2 text-center" style="margin-bottom: 2rem">
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2  text-center " style="margin-bottom: 2rem">
                         <div class="card card-spotify">
-                            <img src="https://m.media-amazon.com/images/I/61zWioxHfwL._SS500_.jpg" class="card-img-top"
-                                alt="..." />
+                            <div class="img-albums">
+                                <div class="imgAlbum">
+                                    <img src="https://charts-images.scdn.co/assets/locale_en/regional/daily/region_it_default.jpg"
+                                        class="card-img-top" alt="..." />
+                                    <div class="play_container">
+                                        <i class="far fa-play-circle playFav"></i>
+                                    </div>
+                                    <div class="hearth_container">
+                                        <i class="far fa-heart hearthFav"></i>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    Made in Heaven (Deluxe Edition 2011 Remaster)
+                                    Made in Heaven<br /> (Deluxe Edition 2011 Remaster)
                                 </h5>
                                 <h6 class="card-title">1995</h6>
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-2 text-center" style="margin-bottom: 2rem">
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2  text-center " style="margin-bottom: 2rem">
                         <div class="card card-spotify">
-                            <img src="https://images-na.ssl-images-amazon.com/images/I/71V5KksYYYL._AC_SL1400_.jpg"
-                                class="card-img-top" alt="..." />
+                            <div class="img-albums">
+                                <div class="imgAlbum">
+                                    <img src="https://m.media-amazon.com/images/I/61zWioxHfwL._SS500_.jpg"
+                                        class="card-img-top d-flex" alt="..." />
+                                    <div class="play_container">
+                                        <i class="far fa-play-circle playFav"></i>
+                                    </div>
+                                    <div class="hearth_container">
+                                        <i class="far fa-heart hearthFav"></i>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    Sheer Heart Attack (2011 Remaster)
+                                    Made in Heaven<br /> (Deluxe Edition 2011 Remaster)
                                 </h5>
+                                <h6 class="card-title">1995</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2  text-center " style="margin-bottom: 2rem">
+                        <div class="card card-spotify">
+                            <div class="img-albums">
+                                <div class="imgAlbum">
+                                    <img src="https://images-na.ssl-images-amazon.com/images/I/71V5KksYYYL._AC_SL1400_.jpg"
+                                        class="card-img-top" alt="..." />
+                                    <div class="play_container">
+                                        <i class="far fa-play-circle playFav"></i>
+                                    </div>
+                                    <div class="hearth_container">
+                                        <i class="far fa-heart hearthFav"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Sheer Heart Attack <br />(2011 Remaster)</h5>
                                 <h6 class="card-title">1974</h6>
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-2 text-center" style="margin-bottom: 2rem">
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2  text-center d-flex" style="margin-bottom: 2rem">
                         <div class="card card-spotify">
-                            <img src="https://images-na.ssl-images-amazon.com/images/I/819A1bn-xyL._AC_SL1400_.jpg""
-                                                                class=" card-img-top" alt="..." />
+                            <div class="img-albums">
+                                <div class="imgAlbum">
+                                    <img src="https://images-na.ssl-images-amazon.com/images/I/819A1bn-xyL._AC_SL1400_.jpg"
+                                        class="card-img-top" alt="..." />
+                                    <div class="play_container">
+                                        <i class="far fa-play-circle playFav"></i>
+                                    </div>
+                                    <div class="hearth_container">
+                                        <i class="far fa-heart hearthFav"></i>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    News Of The World (2011 Remaster)
-                                </h5>
+                                <h5 class="card-title">News Of The World <br />(2011 Remaster)</h5>
                                 <h6 class="card-title">1977</h6>
                             </div>
                         </div>
                     </div>
-
-                </div>
-                <h3 class="text-left my-3" style="font-weight: bold">Classifiche</h3>
-                <div class="row">
-                    <div class="col-6 col-md-3 col-lg-2 text-center" style="margin-bottom: 2rem">
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2  text-center " style="margin-bottom: 2rem">
                         <div class="card card-spotify">
-                            <img src="https://charts-images.scdn.co/assets/locale_en/regional/daily/region_global_large.jpg"
-                                class="card-img-top" alt="..." />
+                            <div class="img-albums">
+                                <div class="imgAlbum">
+                                    <img src="https://upload.wikimedia.org/wikipedia/en/3/3c/Queen_Hot_Space.png"
+                                        class="card-img-top" alt="..." />
+                                    <div class="play_container">
+                                        <i class="far fa-play-circle playFav"></i>
+                                    </div>
+                                    <div class="hearth_container">
+                                        <i class="far fa-heart hearthFav"></i>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="card-body">
-                                <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
-                                <h6 class="card-title">Queen</h6>
+                                <h5 class="card-title">Hot space <br />(2011 Remaster)</h5>
+                                <h6 class="card-title">1982</h6>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-2 text-center" style="margin-bottom: 2rem">
-                        <div class="card card-spotify">
-                            <img src="https://charts-images.scdn.co/assets/locale_en/regional/daily/region_it_default.jpg"
-                                class="card-img-top" alt="..." />
-                            <div class="card-body">
-                                <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
-                                <h6 class="card-title">Queen</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-2 text-center" style="margin-bottom: 2rem">
-                        <div class="card card-spotify">
-                            <img src="https://images-na.ssl-images-amazon.com/images/I/91sLchfSmpL._AC_SL1500_.jpg"
-                                class="card-img-top" alt="..." />
-                            <div class="card-body">
-                                <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
-                                <h6 class="card-title">Queen</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-2 text-center" style="margin-bottom: 2rem">
-                        <div class="card card-spotify">
-                            <img src="https://images-na.ssl-images-amazon.com/images/I/71V5KksYYYL._AC_SL1400_.jpg"
-                                class="card-img-top" alt="..." />
-                            <div class="card-body">
-                                <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
-                                <h6 class="card-title">Queen</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-3 col-xl-2 text-center" style="margin-bottom: 2rem">
-                        <div class="card card-spotify">
-                            <img src="https://m.media-amazon.com/images/I/61zWioxHfwL._SS500_.jpg" class="card-img-top"
-                                alt="..." />
-                            <div class="card-body">
-                                <h5 class="card-title">Bohemian Rhapsody (The Original Soundtrack)</h5>
-                                <h6 class="card-title">Queen</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-    </div>
-    </section>
-    <!-- Create Playlist Modal -->
-    <div class="modal fade" id="createPlaylistModal" tabindex="-1" role="dialog"
-        aria-labelledby="createPlaylistModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <h5 class="modal-title" id="createPlaylistModalLabel">Create Playlist</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="far fa-times-circle text-white"></i></span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="input-group mb-3">
-                        <input id="playlistName" type="text" class="form-control" placeholder="Playlist Name" value=""
-                            aria-label="Playlist Name" aria-describedby="playslist-name">
-
                     </div>
                 </div>
-                <div class="modal-footer">
+            </section>
+            <!-- Create Playlist Modal -->
+            <div class="modal fade" id="createPlaylistModal" tabindex="-1" role="dialog"
+                aria-labelledby="createPlaylistModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header text-center">
+                            <h5 class="modal-title" id="createPlaylistModalLabel">Create Playlist</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true"><i class="far fa-times-circle text-white"></i></span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="input-group mb-3">
+                                <input id="playlistName" type="text" class="form-control" placeholder="Playlist Name"
+                                    value="" aria-label="Playlist Name" aria-describedby="playslist-name">
 
-                    <button type="button" id="createPlaylistBtn" class="btn-login btn-green btn-modals"
-                        data-dismiss="modal">Create
-                        Playlist</button>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" id="createPlaylistBtn" class="btn-login btn-green btn-modals"
+                                data-dismiss="modal">Create
+                                Playlist</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    </main>
+        </main>
 
     </div>
     <section class="player">

@@ -344,12 +344,21 @@ h3 {
 
 .imgAlbum {
 	position: relative;
-	display: flex;
+	display: inline-flex;
 
 }
 
 .img-albums:hover img {
 	opacity: 0.5;
+}
+
+.imgAlbum i {
+	visibility: hidden;
+}
+
+.imgAlbum:hover i {
+	cursor: pointer;
+	visibility: visible;
 }
 
 .play_container {
@@ -362,21 +371,23 @@ h3 {
 	font-size: 4rem;
 }
 
-.play_container i {
-	visibility: hidden;
-
+.hearth_container {
+	position: absolute;
+	right: 0;
+	bottom: 0;
 }
 
-.play_container:hover i {
-	cursor: pointer;
-	visibility: visible;
+.playFav:hover {
+	color: green;
 }
 
 .hearthFav {
 	font-size: 2rem;
 }
 
-
+.hearthFav:hover {
+	color: red;
+}
 
 /* ----------------------------------------MEDIA QUERIES ----------------------------------------------------*/
 

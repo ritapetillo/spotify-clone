@@ -55,3 +55,9 @@ window.onload = function () {
     });
   }
 };
+
+for (let i = 0; i < Discography.albums.length; i++) {
+  if (i === index) {
+    current_album = Discography.albums[i];
+  }
+}

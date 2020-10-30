@@ -23,6 +23,7 @@ let playLists = [];
 let favArt = [];
 let laterAddedPlaylist = [];
 let currentFavArtist = [];
+let current_album = {};
 
 let hamburger = document.querySelector(".navBar__hamburger");
 const indexNavbar = document.querySelector(".index__navBar");
@@ -282,18 +283,16 @@ const Album = {
     console.log(song_list[0].firstElementChild.nextElementSibling.textContent);
     console.log(song_list[0].lastElementChild.textContent);
   },
-  //TODO not working
+
   playSong_: function () {
-    //console.log(this.songList[index].code);
-    let icons = document.querySelectorAll(".table th i");
-    console.log(icons);
+    let icons = document.querySelectorAll(".table th");
+    let songs = this.songList;
     for (let i = 0; i < icons.length; i++) {
       icons[i].addEventListener("click", function () {
-        playSong(this.songList[i].code);
+        icons[i].id = i;
+        playSong(songs[icons[i].id].code);
       });
     }
-
-    //playSong(this.songList[i].code);
   },
 };
 
@@ -304,7 +303,7 @@ window.onload = function () {
   hamburger?.addEventListener("click", displayMobileMenu);
 
   /////////Instantiate Album Object///////////////
-  let current_album = Discography.albums[1];
+  current_album = Discography.albums[0];
   let Album_instance = Object.create(Album);
   Album_instance.name = current_album.name;
   Album_instance.year = current_album.year;

@@ -24,6 +24,8 @@ let favArt = [];
 let laterAddedPlaylist = [];
 let currentFavArtist = [];
 let current_album = {};
+let album_id = 0;
+let Album_instance = {};
 
 let hamburger = document.querySelector(".navBar__hamburger");
 const indexNavbar = document.querySelector(".index__navBar");
@@ -303,27 +305,20 @@ window.onload = function () {
   /////////---------MOBILE NAV TOGGLE IN INDEX----------//////////////
   hamburger?.addEventListener("click", displayMobileMenu);
 
-  /////////Instantiate Album Object///////////////
-  //get Album ID
-  let clickable_albums = document.querySelectorAll(".clickable");
-  let album_id;
-  for (let i = 0; i < clickable_albums.length; i++) {
-    clickable_albums[i].addEventListener("click", function () {
-      clickable_albums[i].id = album_id;
-      console.log(clickable_albums[i].id);
-    });
+  //Instantiate Album Object
+  if (window.location.href.indexOf("single-album") != -1) {
+    album_id = location.search.substring(1);
+    current_album = Discography.albums[album_id];
+    Album_instance = Object.create(Album);
+    Album_instance.name = current_album.name;
+    Album_instance.year = current_album.year;
+    Album_instance.picture = current_album.picture;
+    Album_instance.songList = current_album.songs;
+    Album_instance.loadPicture();
+    Album_instance.loadSongs();
+    Album_instance.playSong_();
+    Album_instance.loadName();
   }
-
-  current_album = Discography.albums[0];
-  let Album_instance = Object.create(Album);
-  Album_instance.name = current_album.name;
-  Album_instance.year = current_album.year;
-  Album_instance.picture = current_album.picture;
-  Album_instance.songList = current_album.songs;
-  Album_instance.loadPicture();
-  Album_instance.loadSongs();
-  Album_instance.playSong_();
-  Album_instance.loadName();
 
   /////////---------LOGIN----------//////////////
   //add login event

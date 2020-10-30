@@ -16,15 +16,23 @@ let imgAvatar = document.getElementById('img-avatar');
 const logooutBtn = document.getElementById('logout');
 const albumSongsNodes = document.querySelectorAll('.table-album tr')
 const musicPlayer = document.getElementById('music-player');
-const favIcon = document.querySelector('.fav-icon')
+const favIcon = document.querySelectorAll('.hearthFav')
 const artistContainer = document.querySelector('.artists__container')
 const albumsFav = document.querySelector('.albums-fav')
+const spinner = document.querySelector('.spinner')
+const playBtns = document.querySelectorAll('.playFav')
+const searchInput = document.getElementById('searchValue')
+const searchBtn = document.getElementById('searchBtn')
+
 
 //VARIABLES
 let playLists = []
 let favArt = []
 let laterAddedPlaylist = []
 let currentFavArtist = []
+let searchResults = []
+const TOKEN = 'Bearer BQByBGWca-__h2QlOC0bXFvLZIf0Wgtq4MclJ2TYK5BhyGaCXDEXrwowaJIaWRdRKIUiZvtVEUH7CDYq3RSJ60DbjD3I5-mZ8tCOLuza2TXg5zXUswkwf_YGyPqKRlT-5buK6GlunL3vTMKh9bmTIkDDcukYo_BMkw_g5lruhCJP-yUOPgpSUngj34AXdGo'
+
 
 
 
@@ -49,6 +57,17 @@ const users = [{
         code: "4gzpq5DPGxSnKTe4SA8HAU",
         image: 'https://i.scdn.co/image/6397b6a29c8d9081412e09feb53600f8c9a18313',
         background:"https://i.scdn.co/image/1ff3b3c63751ef3615e703c9853c433c3f45f4e7"
+    }, {
+        name: 'The Weeknd',
+        code: "1Xyo4u8uXC1ZmMpatF05PJ",
+        image: 'https://i.scdn.co/image/d9a875c37277c35b94c60c00d2cd256db098505d',
+        background:"https://i.scdn.co/image/5cf62c6c908c0a211c0a6eb5ea1878b17df5b9bb"
+        },
+    {
+        name: 'Achille Lauro',
+        code: "0lI3rF4hi4op6UxqlLHPzv",
+        image: 'https://i.scdn.co/image/ab67616d0000b273d7d1c841048a5776dd5405c4',
+        background:"https://i.scdn.co/image/b816d069fcf62c63e0336aae516e12c2dffcb650"
     }]
     
 },
@@ -57,7 +76,13 @@ const users = [{
         name:"Nello",
         password: "nello1234",
         avatar: "https://st2.depositphotos.com/1007566/12304/v/950/depositphotos_123041468-stock-illustration-avatar-man-cartoon.jpg",
-        playlists:["Top Italia","90' Songs"]
+        playlists: ["Top Italia", "90' Songs"],
+         favArt: [{
+        name: 'Caparezza',
+        code: "4l0PmbNvFq3m5JaUuAPbcB",
+        image: 'https://i.scdn.co/image/ab67706f000000028d5942aae406a70180ba61d4',
+        background:"https://i.scdn.co/image/3436d049d265e583180316158fbc130fe9583785"
+    }]
 
     },
     {
@@ -65,7 +90,13 @@ const users = [{
         name:"Federico",
         password: "fede1234",
         avatar: "https://cdn0.iconfinder.com/data/icons/avatar-25/64/avatar-man-beard-brown-long-hair-beard-512.png",
-        playlists:["Top USA","Top Global'"]
+        playlists: ["Top USA", "Top Global"],
+        favArt: [{
+        name: 'Aerosmith',
+        code: "7Ey4PD4MYsKc5I2dolUwbH",
+        image: 'https://i.scdn.co/image/ab67706f0000000214c46fb77a1d2b0fb8d3c218',
+        background:"https://i.scdn.co/image/be3e460027e824a329f7363e49843b6847e8f31c"
+    }]
                
 },defaultUser]
 
@@ -74,6 +105,14 @@ const users = [{
 
 
 // FUNCTIONS
+
+const search = () => {
+    searchBtn.addEventListener('click', () => {
+        let searchValue = searchInput.value;
+        window.location.href = `search.html?${searchValue}`;
+
+    })
+}
 
 const displayMobileMenu = () => {
     console.log(indexNavbar)
@@ -153,7 +192,7 @@ const updatePlaylist = (username) => {
     }
     else {
         playLists = [...playLists, ...username.playlists]
-            localStorage.setItem('playLists', JSON.stringify(playLists))
+            // localStorage.setItem('playLists', JSON.stringify(playLists))
 
 
     }
@@ -169,7 +208,7 @@ const loafFavArt = (username) => {
         playlists = localStorage.getItem(localStorage.getItem('favArt'))
     }
     else {
-        favArt = [...favArt, ...username.favArt]
+        favArt = username.favArt
             // localStorage.setItem('playLists', JSON.stringify(playLists))
     }
     console.log(favArt)
@@ -183,13 +222,32 @@ const playSong = (code) => {
 
 }
 
+const playSongAlbum = (code) => {
+    musicPlayer.src =     musicPlayer.src = `https://open.spotify.com/embed/album/${code}`
+
+   
+}
 /////-------FETCH ALBUMS------/////
 const fetchAlbum = async (albumCode) => {
     const res = await fetch(`https://api.spotify.com/v1/artists/${albumCode}/albums`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': 'Bearer BQD5AJ1q_0VA1NZNTNqKzCV4Bu9EW56HKHvneN6aMShh1TFFLxsxai8DdJ9JAXgIHc6-b2dNCbKiWvIfuQ-4Nm1IGK0J4pigI6rT42srGngZ8mdmS1Av8ou_n-KwqdtZ8H-hejDUiO9BKTOL2k3L9mm0U__dhj1UvC5EH9OzxaXPsBtyIeKe5fJCukG2JGY'
+            'Authorization': TOKEN
+        }
+    })
+    const data = await res.json()
+   return data
+
+}
+
+/////-------FETCH SEARCH------/////
+const fetchSearch = async (query) => {
+    const res = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=artist`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': TOKEN
         }
     })
     const data = await res.json()
@@ -217,20 +275,29 @@ const renderFavArtists = () => {
                         </a>`
         
         artistContainer.appendChild(div)
+        console.log(artist)
     })
 }
 
 ///----PRINT FAV ARTISTS ALBUMS-----///
 const renderFavArtistsAlbums = (artSelected) => {
-    let artistTitle = document.querySelector('.artist-title')
-    let jumboFavArt = document.querySelector('.jumbotron-art-fav')
-    artistTitle.innerHTML = artSelected.name
-    jumboFavArt.style.backgroundImage = `url(${artSelected.background})`;
+      let artistTitle = document.querySelector('.artist-title')
+        let jumboFavArt = document.querySelector('.jumbotron-art-fav')
+    if (artSelected) {
+      
+        artistTitle.innerHTML = artSelected.name
+        jumboFavArt.style.backgroundImage = `url(${artSelected.background})`;
+    } else {
+        artistTitle.innerHTML = currentFavArtist.items[0].artists[0].name
+                jumboFavArt.style.backgroundImage = `url(${currentFavArtist.items[3].images[0].url})`;
+
+
+    }
     currentFavArtist.items.forEach(album => {
         let div = document.createElement('div')
         let divClasses = ["col-6","col-md-4","col-lg-3","col-xl-2","text-center"]
         div.classList.add(...divClasses)
-        div.innerHTML = `       <a href="albums-fav.html?${album.name}" class="">
+        div.innerHTML = `      
                             <div class="card card-spotify">
                                 <img src="${album.images[1].url}"
                                     class="card-img-top" alt="..." />
@@ -241,16 +308,48 @@ const renderFavArtistsAlbums = (artSelected) => {
                                    
                                 </div>
                             </div>
-                        </a>`
+                        `
+        div.addEventListener('click', () => {
+            playSongAlbum(album.id)
+        })
         
         albumsFav.appendChild(div)
     })
 }
 
 
+///----PRINT SEARCH-----///
+const renderSearchResults = (results) => {
+    const searchContainer = document.querySelector('.search__container')
+    results.forEach(result => {
+        let div = document.createElement('div')
+        let divClasses = ["col-6","col-md-4","col-lg-3","col-xl-2","text-center"]
+        div.classList.add(...divClasses)
+        div.innerHTML = `       <a href="albums-fav.html?${result.id}" class="">
+                            <div class="card card-spotify">
+                                <img src="${result.images[1].url}"
+                                    class="card-img-top" alt="..." />
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        ${result.name}
+                                    </h5>
+                                   
+                                </div>
+                            </div>
+                        </a>`
+        
+        searchContainer.appendChild(div)
+    })
+}
+
+
+
+
 // ON WINDOW LOAD
 
 window.onload = function () {
+//activate search functions
+search()
 
 /////////---------MOBILE NAV TOGGLE IN INDEX----------//////////////
     hamburger?.addEventListener('click',displayMobileMenu)
@@ -284,15 +383,46 @@ window.onload = function () {
         })
     }
 
+
+    /////////---------PLAY ALBUMS----------//////////////
+    if (playBtns) {
+        [...playBtns].forEach((btn, i) => {
+            btn.addEventListener('click', () => {
+                let code = btn.getAttribute('code')
+                playSong(code)
+            })
+        })
+    }
+
+           /////////---------RENDER FAV ARTISTS ALBUMS-----------//////////////
+
    
       if (window.location.href.indexOf("albums-fav") != -1) {
           let code = location.search.substring(1)
           let artistFiltered = favArt.find(artist => artist.code === code)
         fetchAlbum(code).then(res=>
             currentFavArtist = res
-        ).then(res => renderFavArtistsAlbums(artistFiltered)
+        ).then(res => renderFavArtistsAlbums(artistFiltered))
+            .then(res => spinner.classList.replace('d-flex', 'd-none')).then(res => {
+            console.log(currentFavArtist)
+        })
             
-)
+
+      }
+    
+    
+           /////////---------RENDER SEARCH-----------//////////////
+
+   
+      if (window.location.href.indexOf("search") != -1) {
+          let query = location.search.substring(1)
+          fetchSearch(query).then(res =>
+            searchResults = res.artists.items
+          ).then(res => {
+            renderSearchResults(searchResults)
+        })
+            
+
     }
 
        /////////---------RENDER FAV ARTISTS-----------//////////////
@@ -314,13 +444,17 @@ window.onload = function () {
         
     }
     /////////---------LIKED ALBUMS-----------//////////////
-    favIcon?.addEventListener('click', () => {
-        favIcon.classList.toggle('fas');
+    [...favIcon].forEach(icon => {
+         icon.addEventListener('click', () => {
+        icon.classList.toggle('fas');
         const bedge = document.getElementById('bedge')
         bedge.classList.toggle('d-none')
     })
 
      
+    })
+        
+       
 
     
     

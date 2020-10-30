@@ -65,7 +65,12 @@ a {
   right: 10px;
   color: white;
 }
-
+.spinner{
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 21231213;
+}
 .bedge {
   padding: 20px 20px;
   border-radius: 10px;

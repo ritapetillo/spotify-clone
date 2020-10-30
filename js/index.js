@@ -31,7 +31,7 @@ let favArt = []
 let laterAddedPlaylist = []
 let currentFavArtist = []
 let searchResults = []
-const TOKEN = 'Bearer BQByBGWca-__h2QlOC0bXFvLZIf0Wgtq4MclJ2TYK5BhyGaCXDEXrwowaJIaWRdRKIUiZvtVEUH7CDYq3RSJ60DbjD3I5-mZ8tCOLuza2TXg5zXUswkwf_YGyPqKRlT-5buK6GlunL3vTMKh9bmTIkDDcukYo_BMkw_g5lruhCJP-yUOPgpSUngj34AXdGo'
+const TOKEN = 'Bearer BQAsGBCg85davER608dAZJw_5FJP6jACp550jG5KQzzJOakiyJoQ9INdaevdDtuJgmxl3c7DZLLLcTZYRSAOtKZetOwB0bedXFkkmv79Us9lDf78lOnXDL8hiMrySiehfqlyvMNLD1HRn1r9jxT0FRiZe6OwGa5aGBY4n90wmS4KT_k_RqGIxBmHwjkOgKg'
 
 
 
@@ -107,11 +107,14 @@ const users = [{
 // FUNCTIONS
 
 const search = () => {
-    searchBtn.addEventListener('click', () => {
-        let searchValue = searchInput.value;
-        window.location.href = `search.html?${searchValue}`;
+    if (searchBtn) {
+        searchBtn.addEventListener('click', () => {
+        
+            let searchValue = searchInput.value;
+            window.location.href = `search.html?${searchValue}`;
 
-    })
+        })
+    }
 }
 
 const displayMobileMenu = () => {
@@ -160,6 +163,7 @@ const login = () => {
     if (userFound && passMatch) {
         //save the user in the local storage and go to index
         localStorage.setItem('currentUser', JSON.stringify(user))
+updatePlaylist(user)
         window.location.href = "index.html";
     } else {
         //else activate warning text
@@ -186,19 +190,33 @@ const validateUsername = (username) => {
 /////////---------UPLOAD USER PLAYLIST----------//////////////
 
 const updatePlaylist = (username) => {
-    let user = users.find(user => user.username === username.username);
-    if (localStorage.getItem(localStorage.getItem('playLists'))) {
-        playlists = localStorage.getItem(localStorage.getItem('playLists'))
-    }
-    else {
+  
         playLists = [...playLists, ...username.playlists]
-            // localStorage.setItem('playLists', JSON.stringify(playLists))
+        localStorage.setItem('playLists', JSON.stringify(playLists))
 
+    
 
-    }
     console.log(localStorage.getItem('playLists'))
 
 }
+
+// const updatePlaylist = (username) => {
+//     let user = users.find(user => user.username === username.username);
+//     if (localStorage.getItem(localStorage.getItem('playLists'))) {
+//         playlists = localStorage.getItem(localStorage.getItem('playLists'))
+//         console.log('there is storage')
+//     }
+//     else {
+//         playLists = [...playLists, ...username.playlists]
+//         localStorage.setItem('playLists', JSON.stringify(playLists))
+//         console.log('there is no')
+
+//     }
+
+//     console.log(localStorage.getItem('playLists'))
+
+// }
+
 
 /////////---------UPLOAD USER FAV ARTISTS----------//////////////
 
@@ -280,9 +298,11 @@ const renderFavArtists = () => {
 }
 
 ///----PRINT FAV ARTISTS ALBUMS-----///
-const renderFavArtistsAlbums = (artSelected) => {
+const renderFavArtistsAlbums = (artSelected,code) => {
       let artistTitle = document.querySelector('.artist-title')
-        let jumboFavArt = document.querySelector('.jumbotron-art-fav')
+    let jumboFavArt = document.querySelector('.jumbotron-art-fav')
+    let artistFollowers = document.getElementById('artist-followers')
+    artistFollowers.src = `https://open.spotify.com/follow/1/?uri=spotify:artist:${code}&size=detail&theme=light`
     if (artSelected) {
       
         artistTitle.innerHTML = artSelected.name
@@ -330,7 +350,7 @@ const renderSearchResults = (results) => {
                                 <img src="${result.images[1].url}"
                                     class="card-img-top" alt="..." />
                                 <div class="card-body">
-                                    <h5 class="card-title">
+                                    <h5 class="card-title mb-4">
                                         ${result.name}
                                     </h5>
                                    
@@ -341,7 +361,48 @@ const renderSearchResults = (results) => {
         searchContainer.appendChild(div)
     })
 }
+////////Albums Logic////////////
 
+const Album = {
+  name: "",
+  year: "",
+  number_of_songs: "",
+  picture: "",
+  loadPicture: function () {
+    //load Picture in Artist Page
+    let img = document.querySelector(".single-album img");
+    img.setAttribute("src", this.picture);
+  },
+  loadName: function () {
+    let name_element = document.querySelector(".single-album h5");
+    name_element.textContent = this.name;
+  },
+  songList: [{ code: "", title: "", duration: "" }],
+  loadSongs: function () {
+    let song_list = document.querySelectorAll(".song-list tr");
+    for (let i = 0; i < song_list.length; i++) {
+      song_list[
+        i
+      ].firstElementChild.nextElementSibling.textContent = this.songList[
+        i
+      ].title;
+      song_list[i].lastElementChild.textContent = this.songList[i].duration;
+    }
+    console.log(song_list[0].firstElementChild.nextElementSibling.textContent);
+    console.log(song_list[0].lastElementChild.textContent);
+  },
+
+  playSong_: function () {
+    let icons = document.querySelectorAll(".table th");
+    let songs = this.songList;
+    for (let i = 0; i < icons.length; i++) {
+      icons[i].addEventListener("click", function () {
+        icons[i].id = i;
+        playSong(songs[icons[i].id].code);
+      });
+    }
+  },
+};
 
 
 
@@ -352,8 +413,22 @@ window.onload = function () {
 search()
 
 /////////---------MOBILE NAV TOGGLE IN INDEX----------//////////////
-    hamburger?.addEventListener('click',displayMobileMenu)
-
+    hamburger?.addEventListener('click', displayMobileMenu)
+    
+//Instantiate Album Object
+  if (window.location.href.indexOf("single-album") != -1) {
+    album_id = location.search.substring(1);
+    current_album = Discography.albums[album_id];
+    Album_instance = Object.create(Album);
+    Album_instance.name = current_album.name;
+    Album_instance.year = current_album.year;
+    Album_instance.picture = current_album.picture;
+    Album_instance.songList = current_album.songs;
+    Album_instance.loadPicture();
+    Album_instance.loadSongs();
+    Album_instance.playSong_();
+    Album_instance.loadName();
+  }
    
 /////////---------LOGIN----------//////////////
     //add login event
@@ -363,7 +438,7 @@ search()
     console.log(currentUser)
     currentUser ? currentUser : defaultUser;
     renderUsername(currentUser)
-    updatePlaylist(currentUser)
+    // updatePlaylist(currentUser)
       clearPlaylist()
     renderPlaylist()
     loafFavArt(currentUser)
@@ -402,7 +477,7 @@ search()
           let artistFiltered = favArt.find(artist => artist.code === code)
         fetchAlbum(code).then(res=>
             currentFavArtist = res
-        ).then(res => renderFavArtistsAlbums(artistFiltered))
+        ).then(res => renderFavArtistsAlbums(artistFiltered,code))
             .then(res => spinner.classList.replace('d-flex', 'd-none')).then(res => {
             console.log(currentFavArtist)
         })

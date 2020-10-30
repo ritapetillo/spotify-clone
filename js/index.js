@@ -287,6 +287,19 @@ const Album = {
     console.log(song_list[0].lastElementChild.textContent);
   },
 
+  loadSongsAndYear: function () {
+    let node = document.querySelector(".buttons-wrapper h6");
+
+    let year = node.textContent.substring(0, 4);
+    let songs_n = node.textContent.substring(6, 9);
+
+    year = this.year;
+    songs_n = this.number_of_songs;
+
+    node.textContent = year + " - " + songs_n + " songs";
+    console.log(node);
+  },
+
   playSong_: function () {
     let icons = document.querySelectorAll(".table th");
     let songs = this.songList;
@@ -312,9 +325,11 @@ window.onload = function () {
     Album_instance = Object.create(Album);
     Album_instance.name = current_album.name;
     Album_instance.year = current_album.year;
+    Album_instance.number_of_songs = current_album.number_of_songs;
     Album_instance.picture = current_album.picture;
     Album_instance.songList = current_album.songs;
     Album_instance.loadPicture();
+    Album_instance.loadSongsAndYear();
     Album_instance.loadSongs();
     Album_instance.playSong_();
     Album_instance.loadName();

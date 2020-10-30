@@ -31,7 +31,7 @@ let favArt = []
 let laterAddedPlaylist = []
 let currentFavArtist = []
 let searchResults = []
-const TOKEN = 'Bearer BQAsGBCg85davER608dAZJw_5FJP6jACp550jG5KQzzJOakiyJoQ9INdaevdDtuJgmxl3c7DZLLLcTZYRSAOtKZetOwB0bedXFkkmv79Us9lDf78lOnXDL8hiMrySiehfqlyvMNLD1HRn1r9jxT0FRiZe6OwGa5aGBY4n90wmS4KT_k_RqGIxBmHwjkOgKg'
+const TOKEN = 'Bearer BQDY1Zwcw7Hbh_BT99Zk5Sk7cWVvpHJmfnKCTJFDD22UNu9UcBQx7s1Ku5ZlEn414cdqwp8A-IpMBRfvmAQXUQfg0IIG2Lg-zIe6RaMt-wrqk1kwwxg9we3W37l_QS2Hzvig75gcmWoFKbaD2-0JNbItvTUHLlSzbgO5DtNhA9sEi0Q7rVieHPSU2Z4gGcw'
 
 
 

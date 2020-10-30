@@ -65,7 +65,7 @@ a {
   right: 10px;
   color: white;
 }
-.spinner{
+.spinner {
   width: 100vw;
   height: 100vh;
   background-color: black;
@@ -81,6 +81,10 @@ a {
   right: 10%;
   opacity: 0;
   animation: bedge 5s ease-in;
+  z-index: 323132;
+}
+.no-background {
+  background-color: transparent;
 }
 
 @keyframes bedge {
@@ -159,27 +163,23 @@ a.btn-login.bt-fb {
   position: fixed;
   top: 50x;
   left: 16%;
-  color:var(--color-links-sideNav);
+  color: var(--color-links-sideNav);
   z-index: 9999;
   min-width: 100px;
 }
-.navArrows  a i{
- padding: 10px 12px;
- background-color: rgba(0, 0, 0, 0.3);
- border-radius: 100%;
- margin: 10px 7px;
-   color:var(--color-links-sideNav);
-
+.navArrows a i {
+  padding: 10px 12px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 100%;
+  margin: 10px 7px;
+  color: var(--color-links-sideNav);
 }
-.navArrows a i:hover{
- transform: scaleX(3%);
- cursor: pointer;
- color:whitesmoke;
-  box-shadow: 0 0 11px rgba(33,33,33,.2); 
-   background-color: rgba(0, 0, 0, 0.5);
-
-
-
+.navArrows a i:hover {
+  transform: scaleX(3%);
+  cursor: pointer;
+  color: whitesmoke;
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 /* ---------------------------------------SIDENAV--------------------------------- */
 
@@ -433,7 +433,6 @@ a.navBar__link.active::after {
   min-height: 40vh;
 }
 
-
 .jumbotron h1,
 p {
   color: white;
@@ -494,7 +493,7 @@ p {
 /* -----------------------------------------------SINGLE ALBUM PAGE ---------------------------------------------*/
 /* -----------------------------------------------SINGLE ALBUM PAGE ---------------------------------------------*/
 /* -----------------------------------------------SINGLE ALBUM PAGE ---------------------------------------------*/
-.single-album{
+.single-album {
   margin-top: 8vh;
 }
 .single-album h3 {
@@ -599,89 +598,85 @@ p {
 /*----------------------------------------Cards -  Index Page--------------------------------------------*/
 
 h3 {
-	font-weight: bold;
-	color: aliceblue;
+  font-weight: bold;
+  color: aliceblue;
 }
 
 .card-title {
-	font-weight: bold;
+  font-weight: bold;
 }
 
-.card-body>h5 {
-	font-size: 12px;
+.card-body > h5 {
+  font-size: 12px;
 }
 
 .card-body h6 {
-	color: var(--color-links-sideNav);
-	font-size: 12px;
+  color: var(--color-links-sideNav);
+  font-size: 12px;
 }
 
 .card-spotify {
-	background-color: transparent;
-	position: relative;
-	color: white;
-	border-style: none;
-	margin: auto;
-	transform: translateY(0);
-	transition: box-shadow 0.3s ease, transform 0.7s ease;
+  background-color: transparent;
+  position: relative;
+  color: white;
+  border-style: none;
+  margin: auto;
+  transform: translateY(0);
+  transition: box-shadow 0.3s ease, transform 0.7s ease;
 }
 
 .card-spotify:hover {
-	transform: translateY(-10px);
-	box-shadow: 0 10px 20px rgba(255, 255, 255, 0.433);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.433);
 }
 
 .img-albums:hover img {
-	opacity: 0.5;
+  opacity: 0.5;
 }
 
 .imgAlbum {
-	position: relative;
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
-  
-
 }
 
-
 .imgAlbum i {
-	visibility: hidden;
+  visibility: hidden;
 }
 
 .imgAlbum:hover i {
-	cursor: pointer;
-	visibility: visible;
+  cursor: pointer;
+  visibility: visible;
 }
 
 .play_container {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 4rem;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
 }
 
 .hearth_container {
-	position: absolute;
-	right: 0.5em;
-	bottom: 0;
+  position: absolute;
+  right: 0.5em;
+  bottom: 0;
 }
 
 .playFav:hover {
-	color: green;
+  color: green;
 }
 
 .hearthFav {
-	font-size: 2rem;
+  font-size: 2rem;
 }
 
 .hearthFav:hover {
-	color: red;
+  color: red;
 }
-
 
 /* -----------------------------------------------PLAYLIST ---------------------------------------------*/
 /* -----------------------------------------------PLAYLIST ---------------------------------------------*/

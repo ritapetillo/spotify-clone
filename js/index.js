@@ -82,6 +82,11 @@ const users = [{
         code: "4l0PmbNvFq3m5JaUuAPbcB",
         image: 'https://i.scdn.co/image/ab67706f000000028d5942aae406a70180ba61d4',
         background:"https://i.scdn.co/image/3436d049d265e583180316158fbc130fe9583785"
+    },{
+        name: 'Aerosmith',
+        code: "7Ey4PD4MYsKc5I2dolUwbH",
+        image: 'https://i.scdn.co/image/ab67706f0000000214c46fb77a1d2b0fb8d3c218',
+        background:"https://i.scdn.co/image/be3e460027e824a329f7363e49843b6847e8f31c"
     }]
 
     },
@@ -92,10 +97,22 @@ const users = [{
         avatar: "https://cdn0.iconfinder.com/data/icons/avatar-25/64/avatar-man-beard-brown-long-hair-beard-512.png",
         playlists: ["Top USA", "Top Global"],
         favArt: [{
-        name: 'Aerosmith',
-        code: "7Ey4PD4MYsKc5I2dolUwbH",
-        image: 'https://i.scdn.co/image/ab67706f0000000214c46fb77a1d2b0fb8d3c218',
-        background:"https://i.scdn.co/image/be3e460027e824a329f7363e49843b6847e8f31c"
+        name: 'David Bowie',
+        code: "0oSGxfWSnnOXhD2fKuz2Gy",
+        image: 'https://i.scdn.co/image/ab67706f000000027d0577e4b1b8e8ec9e82019a',
+        background:"https://i.scdn.co/image/5e6706b6b643d88467b64a19b8ffe4218c6444f9"
+            },
+        {
+        name: 'Led Zeppelin',
+        code: "36QJpDe2go2KgaRleHCDTp",
+        image: 'https://i.scdn.co/image/ab67706f0000000238c33894b80da5646d4a929f',
+        background:"https://i.scdn.co/image/dec827bb3060c12c44054b78f9e49fd046a723cf"
+            },
+           {
+        name: "Guns N' Roses",
+        code: "3qm84nBOXUEQ2vnTfUTTFC",
+        image: 'https://i.scdn.co/image/ab67706f000000023dea752edffb0f7facbd4867',
+        background:"https://i.scdn.co/image/6471a85d25ff05fad3f5f5b0a880a000298dd2c9"
     }]
                
 },defaultUser]
@@ -106,6 +123,13 @@ const users = [{
 
 // FUNCTIONS
 
+const previous = () => {
+    return window.history.back() 
+    
+}
+const forward = () => {
+    return window.history.forward() 
+}
 const search = () => {
     if (searchBtn) {
         searchBtn.addEventListener('click', () => {

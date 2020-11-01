@@ -76,7 +76,6 @@ const users = [
 ];
 
 // FUNCTIONS
-
 const displayMobileMenu = () => {
   console.log(indexNavbar);
   indexNavbar.classList.toggle("d-none");
